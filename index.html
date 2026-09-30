@@ -111,10 +111,17 @@ p{margin:0 0 16px;}
   stroke-dasharray:1000; stroke-dashoffset:1000; transition:stroke-dashoffset .55s cubic-bezier(.4,0,.2,1);
 }
 .evo-node{cursor:pointer;}
-.evo-node circle{fill:#fff; stroke:var(--g300); stroke-width:1.6; transition:.2s;}
-.evo-node:hover circle{stroke:var(--leaf500);}
-.evo-node.on circle{fill:var(--leaf700); stroke:var(--leaf700); r:4.4;}
-.evo-node.past circle{fill:var(--leaf200); stroke:var(--leaf500);}
+.evo-node .ring{fill:#fff; stroke:var(--g300); stroke-width:1.2; transition:.2s;}
+.evo-node .pic{opacity:.62; transition:.2s;}
+.evo-node .dot{fill:#fff; stroke:var(--g300); stroke-width:1.4; transition:.2s;}
+.evo-node:hover .ring,.evo-node:hover .dot{stroke:var(--leaf500);}
+.evo-node:hover .pic{opacity:.9;}
+.evo-node.past .ring{stroke:var(--leaf500);}
+.evo-node.past .pic{opacity:.8;}
+.evo-node.past .dot{fill:var(--leaf200); stroke:var(--leaf500);}
+.evo-node.on .ring{stroke:var(--leaf700); stroke-width:2.2;}
+.evo-node.on .pic{opacity:1;}
+.evo-node.on .dot{fill:var(--leaf700); stroke:var(--leaf700);}
 .evo-cap{font-size:12.5px; color:var(--g500); margin-top:11px; line-height:1.6; text-align:center;}
 .evo-cap b{color:var(--leaf900); display:block; font-size:14px; margin-bottom:2px;}
 
@@ -126,11 +133,20 @@ p{margin:0 0 16px;}
 .evo-item:first-child{border-top:1px solid var(--g200);}
 .evo-item:hover{background:var(--leaf50);}
 .evo-item.on{background:var(--leaf50);}
-.evo-hd{display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;}
-.evo-date{font-size:12px; color:var(--g500); font-variant-numeric:tabular-nums; letter-spacing:.02em;}
+.evo-hd{display:flex; align-items:center; gap:10px;}
+.evo-av{
+  flex:0 0 34px; width:34px; height:34px; border-radius:50%; object-fit:cover;
+  border:1px solid var(--g200); background:var(--leaf100);
+}
+.evo-av--txt{
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; color:var(--leaf700); letter-spacing:0;
+}
+.evo-hdtxt{min-width:0;}
+.evo-date{font-size:12px; color:var(--g500); font-variant-numeric:tabular-nums; letter-spacing:.02em; margin-right:8px;}
 .evo-name{font-weight:700; font-size:15.5px; color:var(--leaf900);}
-.evo-role{font-size:12.5px; color:var(--g500);}
-.evo-body{font-size:14px; line-height:1.78; color:var(--g700); margin-top:6px; display:none;}
+.evo-role{font-size:12.5px; color:var(--g500); display:block; line-height:1.55;}
+.evo-body{font-size:14px; line-height:1.78; color:var(--g700); margin-top:6px; display:none; padding-left:44px;}
 .evo-item.on .evo-body{display:block;}
 .evo-said{margin-bottom:5px;}
 .evo-did{color:var(--leaf700); font-weight:700;}
@@ -423,7 +439,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
     <div class="name">GEMS-Taiwan iGEM 2026　ReLeaf</div>
     <div class="org">GEMS 是一所位於台北市內湖區的獨立研究機構。<br>ReLeaf 是我們 2026 年代表台灣參加國際合成生物學競賽 iGEM 的專案。</div>
     <div class="addr">台北市內湖區成功路三段 174 巷 15 號 9F</div>
-    <div class="fine">這一頁上的每個數字都來自我們自己的原始檔案。<br>標為「還沒做到」的項目，是我們選擇寫出來而不是留白。</div>
   </div>
 </footer>
 
@@ -456,92 +471,92 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
     { id:"s1", glyph:"box", name:"重新設計", dates:"3 月 19 日 — 4 月 18 日",
       note:"畫成專案最後落腳的那個容器。線從土壤出發，在第五次會面時把容器關上。",
       people:[
-        { d:"03-19", n:"林維怡", r:"植物逆境生物學研究者",
+        { d:"03-19", n:"林維怡", r:"植物與逆境生物學研究者", f:"face-lin",
           said:"問我們有沒有想過真實田間的適用性，也問自殺開關到底需不需要。",
           did:"換掉原本的苜蓿，改成幼苗期測試。" },
-        { d:"03-27", n:"鄭梅君 教授", r:"臺灣大學",
+        { d:"03-27", n:"鄭梅君 教授", r:"臺灣大學，植物與逆境生物學", f:"face-cheng",
           said:"水耕單獨用不夠穩定，要先洋菜膠再進土。",
           did:"改用阿拉伯芥（種子是她給的），砍掉滲透逆境，改成盤到土的流程。" },
-        { d:"04-03", n:"Paul Verslues 博士", r:"中央研究院",
-          said:"「Prime, don't rescue」。外源脯胺酸會抑制植物自己的 P5CS1。",
+        { d:"04-03", n:"Paul Verslues 博士", r:"中央研究院，植物逆境生物學與保護劑設計",
+          said:"「Prime, don\u0027t rescue」。外源脯胺酸會抑制植物自己的 P5CS1。",
           did:"從補充物質整個轉向調節植物自身的反應。" },
-        { d:"04-10", n:"陳文亮 教授", r:"Agritalk 創辦人",
+        { d:"04-10", n:"陳文亮 教授", r:"Agritalk 創辦人，智慧農業與 AIoT", f:"face-chen",
           said:"硬體是印表機，生物肥是墨水，商業模式不要只看本地市場。",
           did:"從土壤釋放改成受控的反應器。" },
-        { d:"04-18", n:"Jennifer Brophy 博士", r:"史丹佛大學",
+        { d:"04-18", n:"Jennifer Brophy 博士", r:"史丹佛大學，基因電路設計與反應器硬體", f:"face-brophy",
           said:"自殺開關會被突變掉，圍堵應該靠硬體，菌應該待在只有保護劑能出去的封閉容器裡。",
           did:"三月的設計是把基改菌放進土裡。這次之後換成半透膜的物理圍堵，菌不再進土。" }
       ] },
     { id:"s2", glyph:"flask", name:"第一批製作", dates:"5 月 16 日 — 6 月 27 日",
       note:"畫成一支燒瓶：第一台反應器和第一套植株篩選都在這個階段做出來。",
       people:[
-        { d:"05-16", n:"花博農民市集攤商", r:"小農",
+        { d:"05-16", n:"花博農民市集", r:"小農與有機農友", f:"farm-expo-2",
           said:"先講病蟲害和缺水，鹽害排在後面，而且對農業科技明顯有戒心。",
           did:"把生物風險加進預測，並開了 LINE 平台。" },
-        { d:"05-22", n:"世界蔬菜中心", r:"國際農業發展組織",
+        { d:"05-22", n:"世界蔬菜中心", r:"小農農業與氣候韌性", f:"face-worldveg",
           said:"要先證明環境安全與永續，也要研究基改法規。",
           did:"決定不走有機認證，改往永續農業標章。" },
-        { d:"06-18", n:"張嘉修 教授", r:"生物程序工程",
+        { d:"06-18", n:"張嘉修 教授", r:"化工講座教授，生物製造與反應器工程", f:"face-chang",
           said:"要盯流量和跨膜壓差，那是膜結垢的第一個訊號。",
           did:"成為我們現在最優先的量測缺口。" },
-        { d:"06-20", n:"陳文亮 教授", r:"第二次",
+        { d:"06-20", n:"陳文亮 教授", r:"Agritalk 創辦人（第二次）", f:"face-chen",
           said:"用光控 CcaS／CcaR 取代組成型啟動子，讓電路平常是休息的。",
           did:"整個光控設計從這裡開始。" },
-        { d:"06-27", n:"Elizabeth Sattely 博士", r:"史丹佛大學",
+        { d:"06-27", n:"Elizabeth Sattely 博士", r:"史丹佛大學，保護劑設計", f:"face-sattely",
           said:"照原計畫的概念驗證說服不了任何人，先拿純化的保護劑上植物。",
           did:"直接開始植株試驗，並把保護劑定在三種。" }
       ] },
     { id:"s3", glyph:"leaf", name:"產業與農田", dates:"7 月 7 日 — 7 月 28 日",
       note:"畫成一片葉子：這個階段我們去找真正種植物、賣植物、管植物的人。",
       people:[
-        { d:"07-07", n:"綠媒體", r:"農業媒體",
+        { d:"07-07", n:"綠媒體", r:"農業媒體", f:"logo-greenmedia",
           said:"不同背景的人看農業的方式不一樣，要設計雙向對話。",
           did:"論壇從單向簡報改成十分鐘報告加三十分鐘開放討論。" },
-        { d:"07-09", n:"正瀚生技", r:"生物刺激素業者",
+        { d:"07-09", n:"正瀚生技", r:"生物刺激素開發與法規登記", f:"ev-chbio-wall",
           said:"先確認台灣法規：物理圍堵下可能走肥料管理法的生物刺激素，而不是農藥管理法。",
           did:"我們現在的法規定位是從這次談話來的。" },
-        { d:"07-18", n:"BIO Asia-Taiwan", r:"國際生技展",
+        { d:"07-18", n:"BIO Asia-Taiwan", r:"國際生技展，跨領域企業與研究者", f:"ev-bioasia-booth",
           said:"枯草桿菌的產量取決於溶氧和主動曝氣，不是只有圍堵。",
           did:"把溶氧感測器往硬體清單前面移。" },
-        { d:"07-21", n:"陳惠雯 老師", r:"淡水幸福農莊，自然農法",
+        { d:"07-21", n:"陳惠雯 老師", r:"淡水幸福農莊，自然農法", f:"face-mschen",
           said:"「有時候給太多，對一個生命不是好事，會拿走它自己活下去的能力。」",
           did:"變成設計原則：適度、週期性的保護，不是保護到最大。兩天後做了種子交換原型。" },
-        { d:"07-28", n:"黃介辰 教授", r:"中興大學",
+        { d:"07-28", n:"黃介辰 院長", r:"中興大學，植物逆境生物學與基因電路", f:"face-huang",
           said:"生物刺激素在幼苗期施用效果最持久；逆境或保護劑過量都會傷到植物。",
           did:"反應器改成依預測週期性運轉，不是一直開著。" }
       ] },
     { id:"s4", glyph:"drop", name:"劑量與遞送", dates:"8 月 6 日 — 8 月 28 日",
       note:"畫成一滴水：這個階段的每一次對話都在問有多少真的到得了植物，以及什麼時候到。",
       people:[
-        { d:"08-06", n:"黃介辰 教授", r:"第二次",
+        { d:"08-06", n:"黃介辰 院長", r:"中興大學（第二次，當面）", f:"face-huang",
           said:"分泌出來但失去活性就沒有意義，要把量、身分、溶解度和功能一起看。",
           did:"評估標準從「有沒有分泌」改成四項一起看。" },
-        { d:"08-06", n:"黃姿碧 教授", r:"中興大學，根圈微生物",
+        { d:"08-06", n:"黃姿碧 教授", r:"中興大學，植物逆境與保護劑遞送", f:"ev-huangzb-group",
           said:"有沒有效取決於施用的量、時機和頻率，不是生產。",
           did:"加了訊號胜肽篩選與水耕介質穩定性檢查。" },
-        { d:"08-11", n:"源鮮智慧農場", r:"垂直農場",
+        { d:"08-11", n:"源鮮智慧農場", r:"環控水耕農場", f:"face-yeshealth",
           said:"商業農場需要原位清洗迴路，也要少搬動植株。",
           did:"純氧換成緩和的循環曝氣，減少植株在系統之間搬動。" },
-        { d:"08-28", n:"鄭梅君 教授", r:"第二次",
+        { d:"08-28", n:"鄭梅君 教授", r:"臺灣大學（第二次）", f:"face-cheng",
           said:"要用十到二十天大的植株，鹽分上限 200 mM，從第一片本葉開始處理。",
           did:"重寫土壤加鹽曲線，推翻了先前的版本。" }
       ] },
     { id:"s5", glyph:"bubble", name:"論壇與檢視", dates:"9 月 4 日 — 9 月 12 日",
       note:"畫成一個對話框：專案被公開講出來、被質問、被檢視。論壇坐在尾巴的尖端。",
       people:[
-        { d:"09-04", n:"張嘉修 教授", r:"第二次",
+        { d:"09-04", n:"張嘉修 教授", r:"生物製造與反應器工程（第二次）", f:"face-chang",
           said:"和我們一起把膜外側的滲漏找出來，並要我們為操作的人設計：AIoT 控制、可更換的菌匣。",
           did:"菌匣的想法現在決定了產品形態。" },
-        { d:"09-05", n:"田間對話公開論壇", r:"農民、正瀚生技、綠媒體、李醫師",
+        { d:"09-05", n:"田間對話公開論壇", r:"專家、農民與民眾逾 50 人；與綠媒體合辦", f:"forum-dsc-57",
           said:"植物的代謝在生長和防禦之間有取捨，保護到最大是錯的目標。農民問：用了會不會影響有機認證、一座農場需要幾台。",
           did:"兩題都還開著，是我們最想解決的兩個問題。" },
         { d:"09-09", n:"台灣智慧農業週", r:"農業科技展",
           said:"年輕農民是最可能的第一批使用者，基改法規會很難。",
           did:"修正了目標使用者與定價的說法。" },
-        { d:"09-11", n:"第二屆 ISLSDR 研討會", r:"中興大學",
+        { d:"09-11", n:"第二屆 ISLSDR 研討會", r:"中興大學與日本生命系統設計研究學會合辦",
           said:"回饋全部關於怎麼講。",
           did:"投影片標題改成直接寫結論，並規定不能放自己解釋不完整的圖。" },
-        { d:"09-12", n:"Sattely 博士、Endy 教授", r:"史丹佛大學",
+        { d:"09-12", n:"Sattely 博士、Endy 教授", r:"史丹佛大學，保護劑設計與合成生物學", f:"face-endy",
           said:"要把菌和它送出的保護劑講清楚分開，並在蛋白和 RNA 兩個層次證明。",
           did:"結果頁現在每一條都寫「這證明了什麼、不能證明什麼」。" }
       ] }
@@ -581,8 +596,19 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
       var t=(sh.t&&sh.t[i]!=null)?sh.t[i]:(s.people.length>1?i/(s.people.length-1):0);
       var pt=probe.getPointAtLength(trackLen*t);
       var g=el("g",{"class":"evo-node",tabindex:"0",role:"button"});
-      g.appendChild(el("circle",{cx:pt.x,cy:pt.y,r:"3.4"}));
-      g.appendChild(el("title",null,p.d+"　"+p.n));
+      if(p.f){
+        var cid="clip-"+k+"-"+i;
+        var cp=el("clipPath",{id:cid});
+        cp.appendChild(el("circle",{cx:pt.x,cy:pt.y,r:"6.2"}));
+        svg.appendChild(cp);
+        g.appendChild(el("image",{"class":"pic",href:"img/face/"+p.f+".webp",
+          x:pt.x-6.2,y:pt.y-6.2,width:"12.4",height:"12.4",
+          preserveAspectRatio:"xMidYMid slice","clip-path":"url(#"+cid+")"}));
+        g.appendChild(el("circle",{"class":"ring",cx:pt.x,cy:pt.y,r:"6.2",fill:"none"}));
+      } else {
+        g.appendChild(el("circle",{"class":"dot",cx:pt.x,cy:pt.y,r:"3.6"}));
+      }
+      g.appendChild(el("title",null,p.d+"　"+p.n+"　"+p.r));
       g.addEventListener("click",function(){ pick(i); });
       g.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(i);} });
       svg.appendChild(g); nodes.push({g:g,t:t});
@@ -597,8 +623,13 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
     s.people.forEach(function(p,i){
       var li=document.createElement("li");
       li.className="evo-item"; li.tabIndex=0;
-      li.innerHTML='<div class="evo-hd"><span class="evo-date">'+p.d+'</span>'+
-        '<span class="evo-name">'+p.n+'</span><span class="evo-role">'+p.r+'</span></div>'+
+      var av = p.f
+        ? '<img class="evo-av" src="img/face/'+p.f+'.webp" alt="" loading="lazy">'
+        : '<span class="evo-av evo-av--txt">'+p.d.replace("-","/")+'</span>';
+      li.innerHTML='<div class="evo-hd">'+av+'<span class="evo-hdtxt">'+
+        '<span class="evo-date">'+p.d+'</span>'+
+        '<span class="evo-name">'+p.n+'</span>'+
+        '<span class="evo-role">'+p.r+'</span></span></div>'+
         '<div class="evo-body"><div class="evo-said">'+p.said+'</div>'+
         '<div class="evo-did">'+p.did+'</div></div>';
       li.addEventListener("click",function(){ pick(i); });
