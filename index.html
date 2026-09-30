@@ -63,7 +63,9 @@ img{max-width:100%; display:block;}
 section{padding:56px 0;}
 section.alt{background:var(--leaf50); border-top:1px solid var(--leaf100); border-bottom:1px solid var(--leaf100);}
 h2{font-size:23px; font-weight:800; margin:0 0 6px; color:var(--leaf900); letter-spacing:-.005em;}
-h2 + .sub{font-size:14px; color:var(--g500); margin:0 0 22px;}
+h2{margin-bottom:20px;}
+
+.invite .lead{font-size:17px; color:#dbeae2; line-height:1.85; margin:0;}
 p{margin:0 0 16px;}
 .narrow{max-width:38em;}
 
@@ -203,7 +205,7 @@ p{margin:0 0 16px;}
 /* ---------- invite ---------- */
 .invite{background:var(--leaf900); color:#fff; padding:56px 0;}
 .invite h2{color:#fff;}
-.invite .sub{color:var(--leaf200);}
+
 .invite p{color:#dbeae2;}
 .q{border-top:1px solid rgba(255,255,255,.16); padding:16px 0 0; margin-top:16px;}
 .q:first-of-type{margin-top:24px;}
@@ -263,7 +265,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <section class="igem">
   <div class="wrap">
     <h2>先說明一下這個比賽</h2>
-    <p class="sub">iGEM，國際基因工程機器競賽</p>
     <div class="ig">
       <div class="ig-text">
         <p>iGEM 由麻省理工學院發起，是合成生物學領域規模最大的國際學生競賽，每年有來自四十多個國家、四百多支隊伍參加，分成大學組與高中組。</p>
@@ -291,7 +292,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <section>
   <div class="wrap narrow">
     <h2>想解決的問題</h2>
-    <p class="sub">為什麼一群高中生會做這件事</p>
     <p>台灣的小農正在面對愈來愈難預測的天氣。乾旱、高溫、鹽害不是每年都來，但來的時候整季就沒了。市面上的抗逆境資材多半是大廠的成品，買得到、但貴，而且施用的時機常常落在逆境已經發生之後。</p>
     <p>今年五月我們去花博農民市集問攤商他們最怕什麼。他們先講的是病蟲害和缺水，鹽害排在後面，而且對「農業科技」這四個字明顯有戒心。這件事改變了我們對這個專案的想像：<strong>做得出來，和農民願意用，是兩件完全不同的事。</strong></p>
   </div>
@@ -300,7 +300,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <section class="alt">
   <div class="wrap">
     <h2>我們的解方</h2>
-    <p class="sub">一台放在農場、用綠光控制的小型灌流式生物反應器</p>
     <div class="flow">
       <div>
         <div class="k">01 預測</div>
@@ -361,7 +360,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <section>
   <div class="wrap">
     <h2>這一年</h2>
-    <p class="sub">學生自己動手的部分</p>
     <div class="strip">
       <figure>
         <img src="img/lab.webp" alt="學生在生物安全櫃旁學習電穿孔">
@@ -394,7 +392,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <section class="alt">
   <div class="wrap">
     <h2>專案演進圖</h2>
-    <p class="sub">三月到九月分成五個階段。選一個階段，再選一個人，看那次對話改了什麼</p>
 
     <div class="evo">
       <div class="evo-left">
@@ -409,7 +406,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
         <ul class="evo-list" id="evoList"></ul>
 
         <div class="gal">
-          <div class="gal-h">← 左右滑動</div>
           <div class="gal-track">
             <figure>
               <img src="img/chang.webp" alt="張嘉修教授檢視原型">
@@ -442,7 +438,6 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <section>
   <div class="wrap narrow">
     <h2>我們做到哪裡，還有哪裡沒做到</h2>
-    <p class="sub">兩邊都寫出來，訪談時比較好談</p>
     <p>裝置端我們有把握：反應器連續跑滿 102 小時，OD600 從 0.84 升到 3.77，線性擬合 R² 0.988；膜結垢在這段時間內只讓跨膜壓差漂了 12 mbar。線上光度計是學生自己做的，對商用機 R² 0.995。三種保護劑的基因構築都已定序確認，ACC deaminase 在上清液驗到了帶。</p>
     <div class="gaps">
       <h3>還沒做到的</h3>
@@ -460,7 +455,7 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 <div class="invite">
   <div class="wrap">
     <h2>想請教您</h2>
-    <p class="sub narrow">我們把裝置做到會跑了，也把三種保護劑的構築做完了。接下來要走的是從實驗室到田間那一段，那正好是您的領域。</p>
+    <p class="lead narrow">我們把裝置做到會跑了，也把三種保護劑的構築做完了。接下來要走的是從實驗室到田間那一段，那正好是您的領域。</p>
 
     <div class="q">
       <b>一、我們手上這台裝置，能不能對農改場的研究有用？</b>
