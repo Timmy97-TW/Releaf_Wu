@@ -31,14 +31,13 @@ img{max-width:100%; display:block;}
 /* ---------- hero ---------- */
 .hero{background:#0e1110; color:#fff; position:relative; overflow:hidden;}
 .hero-photo{
-  position:absolute; inset:0;
-  background:url("img/hero-farm.webp") 40% center/cover no-repeat;
+  position:absolute; inset:0; left:40%;
+  background:url("img/hero-farm.webp") center/cover no-repeat;
 }
 .hero-photo::before{
   content:""; position:absolute; inset:0;
-  background:linear-gradient(90deg,rgba(14,17,16,.95) 0%,rgba(14,17,16,.9) 18%,
-                             rgba(14,17,16,.55) 42%,rgba(14,17,16,.12) 72%,
-                             rgba(14,17,16,0) 100%);
+  background:linear-gradient(90deg,#0e1110 0%,rgba(14,17,16,.72) 26%,
+                             rgba(14,17,16,.26) 58%,rgba(14,17,16,0) 88%);
 }
 .hero .wrap{
   position:relative; max-width:1180px;
@@ -236,7 +235,7 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
 }
 @media(max-width:720px){
   body{font-size:16px;}
-  .hero-photo{opacity:.55;}
+  .hero-photo{left:0; opacity:.5;}
   .hero-photo::before{background:linear-gradient(180deg,rgba(14,17,16,.84),rgba(14,17,16,.94));}
   .hero-col{max-width:none;}
   .hero .wrap{padding-left:24px;}
