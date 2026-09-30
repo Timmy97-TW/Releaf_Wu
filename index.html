@@ -67,6 +67,27 @@ h2 + .sub{font-size:14px; color:var(--g500); margin:0 0 22px;}
 p{margin:0 0 16px;}
 .narrow{max-width:38em;}
 
+/* ---------- igem ---------- */
+.igem{background:var(--g50); border-bottom:1px solid var(--g200);}
+.ig{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start; margin-top:20px;}
+.ig > *{min-width:0;}
+.ig-text p{font-size:16px;}
+.ig-dates{margin-top:20px; display:grid; gap:10px;}
+.ig-dates > div{
+  display:flex; align-items:baseline; gap:14px; background:#fff;
+  border:1px solid var(--g200); border-left:3px solid var(--leaf500);
+  border-radius:0 6px 6px 0; padding:11px 15px;
+}
+.ig-dates b{
+  font-size:18px; font-weight:800; color:var(--leaf700);
+  font-variant-numeric:tabular-nums; white-space:nowrap; letter-spacing:.01em;
+}
+.ig-dates span{font-size:13.5px; color:var(--g600); line-height:1.65;}
+.ig-pics{display:grid; gap:14px;}
+.ig-pics figure{margin:0;}
+.ig-pics img{width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:7px; border:1px solid var(--g200);}
+.ig-pics figcaption{font-size:12.5px; color:var(--g500); margin-top:7px; line-height:1.6;}
+
 /* ---------- solution ---------- */
 .flow{display:flex; gap:12px; margin:22px 0 8px; flex-wrap:wrap;}
 .flow > div{flex:1; min-width:150px; background:#fff; border:1px solid var(--g200); border-radius:7px; padding:15px 16px;}
@@ -112,7 +133,7 @@ p{margin:0 0 16px;}
 }
 .evo-node{cursor:pointer;}
 .evo-node .ring{fill:#fff; stroke:var(--g300); stroke-width:1.2; transition:.2s;}
-.evo-node .pic{opacity:.62; transition:.2s;}
+.evo-node .pic{opacity:.62; transition:.2s; clip-path:circle(50%);}
 .evo-node .dot{fill:#fff; stroke:var(--g300); stroke-width:1.4; transition:.2s;}
 .evo-node:hover .ring,.evo-node:hover .dot{stroke:var(--leaf500);}
 .evo-node:hover .pic{opacity:.9;}
@@ -208,6 +229,7 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
   .hero-photo{left:0; opacity:.5;}
   .hero-photo::before{background:linear-gradient(180deg,rgba(20,64,43,.82),rgba(20,64,43,.94));}
   .hero-col{max-width:none;}
+  .ig{grid-template-columns:1fr; gap:20px;}
   .strip,.strip.four{grid-template-columns:1fr 1fr;}
   .stats{gap:22px;}
   .stat b{font-size:25px;}
@@ -236,6 +258,34 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
     </div>
   </div>
 </div>
+
+<section class="igem">
+  <div class="wrap">
+    <h2>先說明一下這個比賽</h2>
+    <p class="sub">iGEM，國際基因工程機器競賽</p>
+    <div class="ig">
+      <div class="ig-text">
+        <p>iGEM 由麻省理工學院發起，是合成生物學領域規模最大的國際學生競賽，每年有來自四十多個國家、四百多支隊伍參加，分成大學組與高中組。</p>
+        <p>每支隊伍要在一年內完成一個完整的專案：<strong>自己找題目、自己做實驗、自己設計硬體、自己去訪談利害關係人、自己建模與寫程式</strong>，最後在年底的世界大賽上向評審答辯。評審看的不只是技術，也看安全性、社會責任，以及團隊有沒有真的走出實驗室去了解問題。</p>
+        <p><strong>GEMS-Taiwan 已連續多年參賽。2024 年，我們在巴黎從全球一百多支高中隊伍中拿下高中組世界冠軍（Grand Prize, High School）。</strong></p>
+        <div class="ig-dates">
+          <div><b>10 / 21</b><span>今年專案結案，所有成果、數據與 wiki 凍結</span></div>
+          <div><b>11 / 10</b><span>飛往法國巴黎，進行評審答辯，與世界各地的高中隊伍競逐</span></div>
+        </div>
+      </div>
+      <div class="ig-pics">
+        <figure>
+          <img src="img/igem-winner.webp" alt="GEMS-Taiwan 獲得 2024 年 iGEM 高中組世界冠軍">
+          <figcaption>2024　巴黎。iGEM 高中組 Grand Prize。</figcaption>
+        </figure>
+        <figure>
+          <img src="img/igem-team.webp" alt="學生在實驗室做洋菜膠電泳">
+          <figcaption>今年的隊伍。實驗從洋菜膠電泳開始學起。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap narrow">
@@ -597,13 +647,9 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
       var pt=probe.getPointAtLength(trackLen*t);
       var g=el("g",{"class":"evo-node",tabindex:"0",role:"button"});
       if(p.f){
-        var cid="clip-"+k+"-"+i;
-        var cp=el("clipPath",{id:cid});
-        cp.appendChild(el("circle",{cx:pt.x,cy:pt.y,r:"6.2"}));
-        svg.appendChild(cp);
         g.appendChild(el("image",{"class":"pic",href:"img/face/"+p.f+".webp",
           x:pt.x-6.2,y:pt.y-6.2,width:"12.4",height:"12.4",
-          preserveAspectRatio:"xMidYMid slice","clip-path":"url(#"+cid+")"}));
+          preserveAspectRatio:"xMidYMid slice"}));
         g.appendChild(el("circle",{"class":"ring",cx:pt.x,cy:pt.y,r:"6.2",fill:"none"}));
       } else {
         g.appendChild(el("circle",{"class":"dot",cx:pt.x,cy:pt.y,r:"3.6"}));
