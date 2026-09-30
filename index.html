@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ReLeaf｜GEMS-Taiwan iGEM 2026</title>
+<meta name="description" content="一群高中生花了一年，做一台能在農場現地生產作物逆境保護蛋白的裝置。">
+<link rel="icon" href="img/logo.png">
+<style>
+:root{
+  --white:#fff; --g50:#fafafa; --g100:#f5f5f5; --g200:#e5e5e5; --g300:#d4d4d4;
+  --g500:#6b6b6b; --g600:#525252; --g700:#404040; --black:#171717;
+  --leaf900:#14402b; --leaf700:#23684a; --leaf500:#4f9c6f;
+  --leaf200:#cfe4d8; --leaf100:#e3f0e8; --leaf50:#f4f9f6;
+  --amber700:#92610c; --amber100:#fdf3dc;
+  --font:"Noto Sans TC","PingFang TC","Hiragino Sans CNS","Microsoft JhengHei",
+         -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --max:940px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--white); color:var(--black);
+  font-family:var(--font); font-size:17px; line-height:1.85;
+  font-feature-settings:"palt"; letter-spacing:.01em;
+}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--leaf900); color:#fff; padding:64px 0 56px; position:relative;
+  overflow:hidden;
+}
+.hero-photo{
+  position:absolute; inset:0; left:auto; width:48%;
+  background:url("img/tamsui.webp") center/cover no-repeat; opacity:.42;
+}
+.hero-photo::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg,var(--leaf900) 0%,rgba(20,64,43,.72) 45%,rgba(20,64,43,.25) 100%);
+}
+.hero .wrap{position:relative;}
+.eyebrow{
+  font-size:12px; letter-spacing:.2em; color:var(--leaf200); font-weight:700;
+  margin-bottom:14px;
+}
+.hero h1{
+  font-size:clamp(28px,5vw,44px); line-height:1.32; margin:0 0 16px;
+  font-weight:800; letter-spacing:-.01em; max-width:17em;
+}
+.hero .lede{
+  font-size:clamp(16px,2vw,18.5px); color:#dbeae2; margin:0; max-width:32em; line-height:1.8;
+}
+.hero .to{
+  margin-top:26px; padding:14px 18px; background:rgba(255,255,255,.09);
+  border-left:3px solid var(--leaf500); border-radius:4px;
+  font-size:15.5px; color:#eaf3ee; max-width:34em; line-height:1.75;
+}
+.stats{display:flex; flex-wrap:wrap; gap:30px; margin-top:34px;}
+.stat b{display:block; font-size:30px; font-weight:800; line-height:1.15; color:#fff;}
+.stat span{font-size:12.5px; color:var(--leaf200); letter-spacing:.06em;}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;}
+section.alt{background:var(--leaf50); border-top:1px solid var(--leaf100); border-bottom:1px solid var(--leaf100);}
+h2{
+  font-size:23px; font-weight:800; margin:0 0 6px; color:var(--leaf900);
+  letter-spacing:-.005em;
+}
+h2 + .sub{font-size:14px; color:var(--g500); margin:0 0 22px;}
+p{margin:0 0 16px;}
+.narrow{max-width:38em;}
+
+/* ---------- solution ---------- */
+.flow{display:flex; gap:12px; margin:22px 0 8px; flex-wrap:wrap;}
+.flow > div{
+  flex:1; min-width:150px; background:#fff; border:1px solid var(--g200);
+  border-radius:7px; padding:15px 16px;
+}
+section.alt .flow > div{background:#fff;}
+.flow .k{
+  font-size:11px; letter-spacing:.14em; color:var(--leaf700); font-weight:700;
+  margin-bottom:5px;
+}
+.flow h3{font-size:15.5px; margin:0 0 5px; color:var(--black); font-weight:700;}
+.flow p{font-size:13.5px; color:var(--g600); margin:0; line-height:1.7;}
+
+.payload{width:100%; border-collapse:collapse; font-size:14.5px; margin:18px 0 0;}
+.payload th{
+  text-align:left; padding:8px 10px; background:var(--leaf100); color:var(--leaf900);
+  font-size:12.5px; letter-spacing:.05em; border-bottom:1px solid var(--leaf200);
+}
+.payload td{padding:10px; border-bottom:1px solid var(--g200); vertical-align:top; line-height:1.7;}
+.payload tr:last-child td{border-bottom:none;}
+.payload .n{font-weight:700; color:var(--leaf900); white-space:nowrap;}
+
+/* ---------- photo strip ---------- */
+.strip{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:24px 0 0;}
+.strip figure{margin:0;}
+.strip img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:7px;
+  border:1px solid var(--g200);
+}
+.strip figcaption{
+  font-size:12.5px; color:var(--g500); margin-top:7px; line-height:1.6;
+}
+
+/* ---------- timeline ---------- */
+.tl{margin:22px 0 0; border-top:1px solid var(--g200);}
+.tl-row{
+  display:grid; grid-template-columns:86px 1fr; gap:18px;
+  padding:13px 0; border-bottom:1px solid var(--g200);
+}
+.tl-date{
+  font-size:12.5px; color:var(--g500); font-variant-numeric:tabular-nums;
+  padding-top:2px; letter-spacing:.02em;
+}
+.tl-who{font-weight:700; font-size:15px; color:var(--leaf900);}
+.tl-who small{
+  font-weight:400; color:var(--g500); font-size:12.5px; margin-left:7px;
+  letter-spacing:.02em;
+}
+.tl-what{font-size:14px; color:var(--g700); line-height:1.75; margin-top:3px;}
+.tl-what em{
+  font-style:normal; color:var(--leaf700); font-weight:700;
+}
+.tl-more{
+  font-size:13.5px; color:var(--g500); padding:15px 0 0; line-height:1.8;
+}
+
+/* ---------- results ---------- */
+.res{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:20px;}
+.res > div{
+  background:#fff; border:1px solid var(--g200); border-radius:7px; padding:16px 18px;
+}
+.res b{
+  display:block; font-size:25px; font-weight:800; color:var(--leaf700);
+  line-height:1.2; font-variant-numeric:tabular-nums; margin-bottom:4px;
+}
+.res h3{font-size:14.5px; margin:0 0 5px; font-weight:700;}
+.res p{font-size:13px; color:var(--g600); margin:0; line-height:1.7;}
+
+.gaps{
+  background:var(--amber100); border-left:3px solid var(--amber700);
+  padding:16px 20px; border-radius:0 5px 5px 0; margin-top:24px;
+}
+.gaps h3{font-size:15px; margin:0 0 8px; color:#6d4809; font-weight:700;}
+.gaps ul{margin:0; padding-left:19px; font-size:14px; color:var(--g700); line-height:1.8;}
+.gaps li{margin-bottom:4px;}
+
+/* ---------- invite ---------- */
+.invite{background:var(--leaf900); color:#fff; padding:56px 0;}
+.invite h2{color:#fff;}
+.invite .sub{color:var(--leaf200);}
+.invite p{color:#dbeae2;}
+.invite .narrow{max-width:40em;}
+.q{
+  border-top:1px solid rgba(255,255,255,.16); padding:15px 0 0; margin-top:16px;
+}
+.q:first-of-type{margin-top:22px;}
+.q b{display:block; font-size:16px; color:#fff; margin-bottom:5px; font-weight:700;}
+.q span{font-size:14px; color:#c4dbcf; line-height:1.78; display:block;}
+.ask{
+  margin-top:30px; padding:20px 22px; background:rgba(255,255,255,.1);
+  border-radius:6px; font-size:16px; color:#fff; line-height:1.85;
+}
+.ask strong{color:#fff;}
+
+/* ---------- footer ---------- */
+footer{padding:44px 0 52px; background:var(--white); text-align:center;}
+footer img{width:78px; height:78px; margin:0 auto 16px; border-radius:50%;}
+footer .name{font-size:16px; font-weight:700; color:var(--leaf900); margin-bottom:3px;}
+footer .org{font-size:14px; color:var(--g600); line-height:1.8;}
+footer .addr{font-size:13px; color:var(--g500); margin-top:9px; line-height:1.75;}
+footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7;}
+
+@media(max-width:720px){
+  body{font-size:16px;}
+  .hero-photo{width:100%; opacity:.2;}
+  .hero-photo::before{background:linear-gradient(180deg,rgba(20,64,43,.9),rgba(20,64,43,.96));}
+  .strip{grid-template-columns:1fr 1fr;}
+  .res{grid-template-columns:1fr;}
+  .tl-row{grid-template-columns:1fr; gap:3px;}
+  .tl-date{padding-top:0;}
+  .stats{gap:22px;}
+  .stat b{font-size:25px;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-photo"></div>
+  <div class="wrap">
+    <div class="eyebrow">GEMS-TAIWAN iGEM 2026 ｜ ReLeaf</div>
+    <h1>一群高中生花了一年，做一台能在農場現地生產作物逆境保護劑的裝置</h1>
+    <p class="lede">從三月的第一次訪談到現在，我們被三十多場對話改過方向。這一頁是給吳姿嫺主任的一份簡短報告，最後有一個小小的請求。</p>
+    <div class="to">
+      吳主任您好。謝謝您在 LINE 上的提問，那兩個問題正好是我們今年最該面對的。這一頁想讓您在十分鐘內看完我們是誰、做了什麼、以及做不到什麼。
+    </div>
+    <div class="stats">
+      <div class="stat"><b>13</b><span>位具名專家指導</span></div>
+      <div class="stat"><b>32</b><span>場有日期的對話</span></div>
+      <div class="stat"><b>102</b><span>小時連續運轉</span></div>
+      <div class="stat"><b>0</b><span>次田間試驗</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap narrow">
+    <h2>想解決的問題</h2>
+    <p class="sub">為什麼一群高中生會做這件事</p>
+    <p>台灣的小農正在面對愈來愈難預測的天氣。乾旱、高溫、鹽害不是每年都來，但來的時候整季就沒了。市面上的抗逆境資材多半是大廠的成品，買得到、但貴，而且施用的時機常常落在逆境已經發生之後。</p>
+    <p>今年五月我們去花博農民市集問攤商他們最怕什麼。他們先講的是病蟲害和缺水，鹽害排在後面，而且對「農業科技」這四個字明顯有戒心。這件事改變了我們對這個專案的想像：<strong>做得出來，和農民願意用，是兩件完全不同的事。</strong></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>我們的解方</h2>
+    <p class="sub">一台放在農場、用綠光控制的小型灌流式生物反應器</p>
+    <div class="flow">
+      <div>
+        <div class="k">01 預測</div>
+        <h3>先看天氣</h3>
+        <p>接中央氣象署與防檢署的公開資料，在逆境來臨前判斷要不要開始生產。</p>
+      </div>
+      <div>
+        <div class="k">02 生產</div>
+        <h3>菌在裝置裡工作</h3>
+        <p>工程改造的枯草桿菌被綠光打開，開始分泌保護蛋白。不需要時燈是關的。</p>
+      </div>
+      <div>
+        <div class="k">03 分離</div>
+        <h3>菌留下，蛋白出去</h3>
+        <p>0.2 µm 中空纖維膜，孔徑小於菌體。蛋白穿過去，菌留在裡面。</p>
+      </div>
+      <div>
+        <div class="k">04 施用</div>
+        <h3>新鮮、現地</h3>
+        <p>取出的是無細胞液體，直接進灌溉或水耕管線。不需要冷鏈與庫存。</p>
+      </div>
+    </div>
+
+    <table class="payload">
+      <thead><tr><th style="width:22%">三種保護劑</th><th>作用機制</th></tr></thead>
+      <tbody>
+        <tr><td class="n">ACC deaminase<br><span style="font-weight:400;color:var(--g500);font-size:12.5px">酵素</span></td>
+          <td>分解乙烯的前驅物 ACC，降低植物在逆境下的乙烯激增，減緩黃化與生長停滯。</td></tr>
+        <tr><td class="n">LEA14<br><span style="font-weight:400;color:var(--g500);font-size:12.5px">蛋白質</span></td>
+          <td>植物自身的脫水保護蛋白。細胞失水時包覆膜與蛋白質，避免聚集變性。</td></tr>
+        <tr><td class="n">BoPep4<br><span style="font-weight:400;color:var(--g500);font-size:12.5px">胜肽</span></td>
+          <td>青花菜天然的誘導胜肽，由受體 PEPR1／PEPR2 辨識，啟動植物自身的逆境反應。</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13.5px;color:var(--g600);margin-top:14px;">三者都是生物性、非化學合成，都作用在植物自身的生理反應上，不殺蟲、不殺菌。今年因為競賽規範與生物安全考量，<strong>我們不做任何田間試驗</strong>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>這一年</h2>
+    <p class="sub">學生自己動手的部分</p>
+    <div class="strip">
+      <figure>
+        <img src="img/lab.webp" alt="學生在生物安全櫃旁學習電穿孔">
+        <figcaption>學生第一次學電穿孔。枯草桿菌在 2.0 到 2.3 kV 之間轉型效率最高，這個範圍是學生自己掃出來的。</figcaption>
+      </figure>
+      <figure>
+        <img src="img/reactor-run.webp" alt="運轉中的生物反應器">
+        <figcaption>運轉中的反應器。玻璃瓶、幫浦、膜柱、麵包板上的線路，還有一台學生自己做的線上光度計。</figcaption>
+      </figure>
+      <figure>
+        <img src="img/cad.webp" alt="學生在垂直農場現場改 CAD">
+        <figcaption>2026-08-11　源鮮智慧農場。聽完對方怎麼跑清洗迴路，學生當場打開筆電改 CAD。</figcaption>
+      </figure>
+      <figure>
+        <img src="img/classroom.webp" alt="學生在教室授課">
+        <figcaption>學生設計教案，到國小、國中、高中上課，講植物的非生物逆境。</figcaption>
+      </figure>
+      <figure>
+        <img src="img/forum.webp" alt="學生在公開論壇報告">
+        <figcaption>2026-09-05　田間對話公開論壇。學生報告完，後面三十分鐘留給農民講。</figcaption>
+      </figure>
+      <figure>
+        <img src="img/tamsui.webp" alt="團隊與陳惠雯老師在淡水幸福農莊">
+        <figcaption>2026-07-21　淡水幸福農莊，陳惠雯老師。她那句話改了我們的設計原則。</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>在您之前</h2>
+    <p class="sub">這個專案被誰改過。每一列都是一次我們把原本的做法砍掉或改掉的記錄</p>
+    <div class="tl">
+
+      <div class="tl-row">
+        <div class="tl-date">03-19</div>
+        <div><div class="tl-who">林維怡 <small>植物逆境生物學研究者</small></div>
+          <div class="tl-what">問我們有沒有想過真實田間的適用性，也問自殺開關到底需不需要。<em>我們換掉了原本的苜蓿，改成幼苗期測試。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">03-27</div>
+        <div><div class="tl-who">鄭梅君 教授 <small>臺灣大學</small></div>
+          <div class="tl-what">說水耕單獨用不夠穩定，要先洋菜膠再進土。<em>我們改用阿拉伯芥（種子是她給的），砍掉滲透逆境，改成盤到土的流程。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">04-03</div>
+        <div><div class="tl-who">Paul Verslues 博士 <small>中央研究院</small></div>
+          <div class="tl-what">「Prime, don't rescue」。外源脯胺酸會抑制植物自己的 P5CS1。<em>我們從補充物質整個轉向調節植物自身反應。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">04-10</div>
+        <div><div class="tl-who">陳文亮 教授 <small>Agritalk 創辦人</small></div>
+          <div class="tl-what">硬體是印表機，生物肥是墨水。<em>我們從土壤釋放改成受控的反應器。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">04-18</div>
+        <div><div class="tl-who">Jennifer Brophy 博士 <small>史丹佛大學</small></div>
+          <div class="tl-what">自殺開關會被突變掉，圍堵應該靠硬體。<em>三月的設計是把基改菌放進土裡。這次之後我們把它整個換成半透膜的物理圍堵，菌不再進土。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">05-16</div>
+        <div><div class="tl-who">花博農民市集攤商 <small>小農</small></div>
+          <div class="tl-what">先講病蟲害和缺水，鹽害排在後面，而且對農業科技有戒心。<em>我們把生物風險加進預測，並開了 LINE 平台。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">05-22</div>
+        <div><div class="tl-who">世界蔬菜中心 <small>國際農業發展組織</small></div>
+          <div class="tl-what">要先證明環境安全，也要研究基改法規。<em>我們決定不走有機認證，改往永續農業標章。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">06-18</div>
+        <div><div class="tl-who">張嘉修 教授 <small>生物程序工程</small></div>
+          <div class="tl-what">要盯流量和跨膜壓差，那是膜結垢的第一個訊號。<em>這成為我們現在最優先的量測缺口。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">06-20</div>
+        <div><div class="tl-who">陳文亮 教授 <small>第二次</small></div>
+          <div class="tl-what">用光控 CcaS／CcaR 取代組成型啟動子，讓電路平常是休息的。<em>整個光控設計從這裡開始。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">06-27</div>
+        <div><div class="tl-who">Elizabeth Sattely 博士 <small>史丹佛大學</small></div>
+          <div class="tl-what">照原計畫的概念驗證說服不了任何人，先拿純化的保護劑上植物。<em>我們直接開始植株試驗，並把保護劑定在三種。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">07-07</div>
+        <div><div class="tl-who">綠媒體 <small>農業媒體</small></div>
+          <div class="tl-what">不同背景的人看農業的方式不一樣，要設計雙向對話。<em>論壇從單向簡報改成十分鐘報告加三十分鐘開放討論。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">07-09</div>
+        <div><div class="tl-who">正瀚生技 <small>生物刺激素業者</small></div>
+          <div class="tl-what">先確認台灣法規：物理圍堵下可能走肥料管理法的生物刺激素，而不是農藥管理法。<em>我們現在的法規定位是從這次談話來的。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">07-21</div>
+        <div><div class="tl-who">陳惠雯 老師 <small>淡水幸福農莊，自然農法</small></div>
+          <div class="tl-what">「有時候給太多，對一個生命不是好事，會拿走它自己活下去的能力。」<em>這句話變成我們的設計原則：適度、週期性的保護，不是保護到最大。兩天後我們做了種子交換的原型。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">07-28</div>
+        <div><div class="tl-who">黃介辰 教授 <small>中興大學</small></div>
+          <div class="tl-what">生物刺激素在幼苗期施用效果最持久；逆境或保護劑過量都會傷到植物，要設劑量上限。<em>反應器改成依預測週期性運轉，不是一直開著。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">08-06</div>
+        <div><div class="tl-who">黃姿碧 教授 <small>中興大學，根圈微生物</small></div>
+          <div class="tl-what">有沒有效取決於施用的量、時機和頻率，不是生產。<em>我們加了訊號胜肽篩選與水耕介質穩定性檢查。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">08-11</div>
+        <div><div class="tl-who">源鮮智慧農場 <small>垂直農場</small></div>
+          <div class="tl-what">商業農場需要原位清洗迴路。<em>我們把純氧換成緩和的循環曝氣，也減少植株在系統之間的搬動。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">08-28</div>
+        <div><div class="tl-who">鄭梅君 教授 <small>第二次</small></div>
+          <div class="tl-what">要用十到二十天大的植株，鹽分上限 200 mM，從第一片本葉開始處理。<em>我們重寫了土壤加鹽曲線，推翻了先前的版本。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">09-04</div>
+        <div><div class="tl-who">張嘉修 教授 <small>第二次</small></div>
+          <div class="tl-what">和我們一起把膜外側的滲漏找出來，並要我們為操作的人設計：AIoT 控制、可更換的菌匣。<em>菌匣的想法現在決定了產品形態。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">09-05</div>
+        <div><div class="tl-who">田間對話公開論壇 <small>農民、正瀚生技、綠媒體、自然農法李醫師</small></div>
+          <div class="tl-what">植物的代謝在生長和防禦之間有取捨，保護到最大是錯的目標。現場農民問了兩個我們答不出來的問題：用了會不會影響有機認證、一座農場需要幾台。<em>兩題都還開著。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">09-11</div>
+        <div><div class="tl-who">第二屆 ISLSDR 研討會 <small>中興大學</small></div>
+          <div class="tl-what">回饋全部關於怎麼講。<em>我們把投影片標題改成直接寫結論，並規定不能放自己解釋不完整的圖。</em></div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-date">09-12</div>
+        <div><div class="tl-who">Elizabeth Sattely 博士、Drew Endy 教授 <small>史丹佛大學</small></div>
+          <div class="tl-what">要把菌和它送出的保護劑講清楚分開，並在蛋白和 RNA 兩個層次證明。<em>結果頁現在每一條都寫「這證明了什麼、不能證明什麼」。</em></div></div>
+      </div>
+
+      <div class="tl-row" style="background:var(--leaf100);margin:0 -14px;padding:16px 14px;border-radius:6px;border-bottom:none;">
+        <div class="tl-date" style="color:var(--leaf700);font-weight:700;">下一格</div>
+        <div><div class="tl-who">吳姿嫺 主任 <small>農業部苗栗區農業改良場 生物防治研究中心</small></div>
+          <div class="tl-what">這張表上有學界九位、業界四家、農民三組、媒體與國際組織各一。<em>公部門這一格到現在還是空的。</em>農會的拜訪我們排在待辦上，還沒有日期。您會是我們第一位來自主管機關體系的受訪者。</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>幾個關鍵結果</h2>
+    <p class="sub">學生自己量的，每個數字都追得到原始檔案</p>
+    <div class="res">
+      <div>
+        <b>R² 0.988</b>
+        <h3>102 小時連續灌流培養</h3>
+        <p>OD600 從 0.84 升到 3.77，線性 0.0298 OD／小時。定速無停滯，這是進料限制的形狀，不是菌長不動。</p>
+      </div>
+      <div>
+        <b>12 mbar</b>
+        <h3>膜結垢的上限</h3>
+        <p>102 小時內跨膜壓差只漂 12 mbar，對照靜態視窗標準差 5.9 mbar。這是我們目前對服務壽命唯一的界線。</p>
+      </div>
+      <div>
+        <b>R² 0.995</b>
+        <h3>自製線上光度計</h3>
+        <p>對商用 BioDrop，殘差標準差 0.024 OD。以 TiO₂ 粒子階梯校正時，我們這台 R² 0.990，商用機 0.850。</p>
+      </div>
+      <div>
+        <b>3 %</b>
+        <h3>壓降實測對理論</h3>
+        <p>流道壓降的實測值與 Hagen–Poiseuille 計算值差 3%。學生算的，不是估的。</p>
+      </div>
+    </div>
+
+    <div class="gaps">
+      <h3>我們沒做到的，也一起寫在這裡</h3>
+      <ul>
+        <li><strong>沒有任何保護效果數據。</strong>ACC deaminase 上植株兩次都因為污染作廢，LEA14 和 BoPep4 從來沒有接觸過植物。</li>
+        <li><strong>沒有任何蛋白產量或活性數字。</strong>沒有標準曲線、沒有 mg/L 產率。</li>
+        <li><strong>綠光誘導從來沒有實際跑過。</strong>目前所有表現數據都來自一直開著的版本。</li>
+        <li><strong>圍堵只驗過一次。</strong>膜外側塗盤沒長菌落，但重複數沒記錄，而且九月我們自己發現過一次滲漏。第二層圍堵還沒做。</li>
+        <li><strong>所有生長數據都在 37 °C</strong>，田間目標是 22 °C。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="invite">
+  <div class="wrap">
+    <h2>想請教您</h2>
+    <p class="sub narrow">我們手上比較硬的是工程和量測，生物效果與落地那一端幾乎是空的。我們擔心的是自己把力氣放錯地方而不自知。</p>
+
+    <div class="q">
+      <b>一、封閉系統內的基改微生物，在台灣歸哪裡管？</b>
+      <span>我們讀過肥料管理法與農藥管理法，也和一家做生物刺激素登記的業者交換過意見。但「菌留在裝置裡、只有無細胞產物出來」這個情境，我們找不到對應的規範或主管機關。您的答案會決定我們把這一段寫成什麼。</span>
+    </div>
+
+    <div class="q">
+      <b>二、如果現在就要為未來留路，哪些資料應該從第一天開始好好記錄？</b>
+      <span>我們自己想得到的是菌株與批次的追溯、圍堵驗證的重複數、每一批的運轉條件。但我們不知道還漏了什麼。以您看過的案子來說，學生團隊或新創最常在哪一項上事後補不回來？</span>
+    </div>
+
+    <div class="q">
+      <b>三、以您做生物防治的經驗，這個方向最容易在哪裡迷失？</b>
+      <span>推廣體系長期在看什麼樣的東西能真的到農民手上。如果要我們排一個優先順序，您會叫我們先做哪一件？</span>
+    </div>
+
+    <div class="q">
+      <b>四、農改場的推廣體系，學生團隊有沒有參與或學習的管道？</b>
+      <span>我們今年不會、也不能做田間試驗。想了解的是這套體系怎麼運作，以及一項新技術要走到農民面前，通常需要先具備什麼。</span>
+    </div>
+
+    <div class="ask">
+      不知道是否方便，能請您撥 <strong>20 到 30 分鐘</strong>做一次簡短的訪談？線上或電話都可以，時間完全配合您。<br>
+      若方便的話，想初步請問您什麼時候比較合適。謝謝主任。
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="GEMS-Taiwan ReLeaf">
+    <div class="name">GEMS-Taiwan iGEM 2026　ReLeaf</div>
+    <div class="org">GEMS 是一所位於台北市內湖區的獨立研究機構。<br>ReLeaf 是我們 2026 年代表台灣參加國際合成生物學競賽 iGEM 的專案。</div>
+    <div class="addr">台北市內湖區成功路三段 174 巷 15 號 9F</div>
+    <div class="fine">這一頁上的每個數字都來自我們自己的原始檔案。<br>標為「沒做到」的項目，是我們選擇寫出來而不是留白。</div>
+  </div>
+</footer>
+
+</body>
+</html>
