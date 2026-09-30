@@ -132,8 +132,9 @@ p{margin:0 0 16px;}
   stroke-dasharray:1000; stroke-dashoffset:1000; transition:stroke-dashoffset .55s cubic-bezier(.4,0,.2,1);
 }
 .evo-node{cursor:pointer;}
-.evo-node .ring{fill:#fff; stroke:var(--g300); stroke-width:1.2; transition:.2s;}
-.evo-node .pic{opacity:.62; transition:.2s; clip-path:circle(50%);}
+.evo-node .plate{fill:#fff; stroke:none;}
+.evo-node .ring{fill:none; stroke:var(--g300); stroke-width:1.2; transition:.2s;}
+.evo-node .pic{opacity:.62; transition:.2s;}
 .evo-node .dot{fill:#fff; stroke:var(--g300); stroke-width:1.4; transition:.2s;}
 .evo-node:hover .ring,.evo-node:hover .dot{stroke:var(--leaf500);}
 .evo-node:hover .pic{opacity:.9;}
@@ -647,10 +648,15 @@ footer .fine{font-size:12px; color:var(--g500); margin-top:18px; line-height:1.7
       var pt=probe.getPointAtLength(trackLen*t);
       var g=el("g",{"class":"evo-node",tabindex:"0",role:"button"});
       if(p.f){
+        var cid="clip-"+k+"-"+i;
+        var cp=el("clipPath",{id:cid,clipPathUnits:"userSpaceOnUse"});
+        cp.appendChild(el("circle",{cx:pt.x,cy:pt.y,r:"6.2"}));
+        svg.appendChild(cp);
+        g.appendChild(el("circle",{"class":"plate",cx:pt.x,cy:pt.y,r:"6.2"}));
         g.appendChild(el("image",{"class":"pic",href:"img/face/"+p.f+".webp",
           x:pt.x-6.2,y:pt.y-6.2,width:"12.4",height:"12.4",
-          preserveAspectRatio:"xMidYMid slice"}));
-        g.appendChild(el("circle",{"class":"ring",cx:pt.x,cy:pt.y,r:"6.2",fill:"none"}));
+          preserveAspectRatio:"xMidYMid slice","clip-path":"url(#"+cid+")"}));
+        g.appendChild(el("circle",{"class":"ring",cx:pt.x,cy:pt.y,r:"6.2"}));
       } else {
         g.appendChild(el("circle",{"class":"dot",cx:pt.x,cy:pt.y,r:"3.6"}));
       }
